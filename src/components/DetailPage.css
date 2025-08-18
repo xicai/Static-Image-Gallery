@@ -1,0 +1,176 @@
+.detail-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.detail-header {
+  margin-bottom: 30px;
+}
+
+.detail-header h1 {
+  font-size: 2rem;
+  color: #333;
+  margin: 20px 0;
+}
+
+.back-link {
+  display: inline-block;
+  color: #3498db;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #2980b9;
+}
+
+/* 主要图片展示 */
+.main-image-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-info {
+  padding: 30px;
+}
+
+.image-info h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.image-meta {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* 相关图片部分 */
+.related-section {
+  margin-top: 40px;
+}
+
+.related-section h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.related-image-card {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.related-image-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.related-image-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.related-image-card:hover img {
+  transform: scale(1.05);
+}
+
+.related-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  padding: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.related-image-card:hover .related-image-overlay {
+  opacity: 1;
+}
+
+.related-image-overlay p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* 错误页面 */
+.error-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.error-container h2 {
+  font-size: 2rem;
+  color: #e74c3c;
+  margin-bottom: 20px;
+}
+
+.error-container p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* 加载状态 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .detail-page {
+    padding: 15px;
+  }
+
+  .image-info {
+    padding: 20px;
+  }
+
+  .image-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .related-section h3 {
+    font-size: 1.3rem;
+  }
+}

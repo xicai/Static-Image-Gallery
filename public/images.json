@@ -1,0 +1,36 @@
+[
+  {
+    "id": "img-001",
+    "url": "https://res.cloudinary.com/demo/image/upload/sample.jpg",
+    "description": "示例图片1 - 美丽的风景",
+    "width": 1200,
+    "height": 800,
+    "related_images": [
+      {
+        "id": "img-002",
+        "url": "https://res.cloudinary.com/demo/image/upload/v1571218123/sample.jpg"
+      }
+    ]
+  },
+  {
+    "id": "img-002", 
+    "url": "https://res.cloudinary.com/demo/image/upload/v1571218123/sample.jpg",
+    "description": "示例图片2 - 城市夜景",
+    "width": 1024,
+    "height": 768,
+    "related_images": [
+      {
+        "id": "img-003",
+        "url": "https://res.cloudinary.com/demo/image/upload/shoes.jpg"
+      }
+    ]
+  },
+  {
+    "id": "img-003",
+    "url": "https://res.cloudinary.com/demo/image/upload/shoes.jpg", 
+    "description": "示例图片3 - 产品展示",
+    "width": 800,
+    "height": 600,
+    "related_images": []
+  }
+]
