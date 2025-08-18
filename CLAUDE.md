@@ -4,7 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a React-based static image gallery application built with Vite. The project is currently in its initial template phase but is structured to evolve into a full-featured image gallery.
+This is a React-based static image gallery application built with Vite. It features:
+- Responsive masonry layout for image display
+- Cloudinary integration for image upload and optimization
+- HashRouter for GitHub Pages compatibility
+- MCP browser tools integration for debugging
 
 ## Tech Stack
 
@@ -21,6 +25,13 @@ This is a React-based static image gallery application built with Vite. The proj
 - `npm run lint` - Run ESLint checks
 - `npm run preview` - Preview production build
 
+### Debug Scripts
+- `./debug.sh dev` - Start development server
+- `./debug.sh build` - Build project
+- `./debug.sh preview` - Preview build
+- `./debug.sh lint` - Check code quality
+- `./debug.sh status` - Show project status
+
 ## Architecture
 
 ### Data Structure
@@ -31,9 +42,16 @@ The gallery uses `public/images.json` as its data source, which contains:
 
 ### Key Files
 - `src/main.jsx` - Application entry point using React 18 createRoot API
-- `src/App.jsx` - Main application component (currently a template)
+- `src/App.jsx` - Main application component with HashRouter setup
+- `src/components/HomePage.jsx` - Gallery homepage with masonry layout
+- `src/components/DetailPage.jsx` - Individual image detail view
+- `src/components/Uploader.jsx` - Cloudinary image upload component
+- `src/utils/cloudinary.js` - Image URL optimization utilities
 - `public/images.json` - Image data configuration
-- `vite.config.js` - Minimal Vite configuration with React plugin
+- `vite.config.js` - Vite configuration with GitHub Pages base path
+- `.github/workflows/deploy.yml` - GitHub Actions deployment workflow
+- `debug.sh` - Debug helper script
+- `MCP_DEBUG.md` - MCP browser tools debugging guide
 
 ### Component Structure
 The project follows standard React component architecture with:
@@ -45,10 +63,36 @@ The project follows standard React component architecture with:
 
 - The project uses modern React patterns with StrictMode enabled
 - ESLint is configured to ignore unused variables starting with capital letters
+- HashRouter is used instead of BrowserRouter for GitHub Pages compatibility
 - Image optimization is handled via Cloudinary URL transformations in `src/utils/cloudinary.js`
 - Upload workflow requires Cloudinary configuration in `src/components/Uploader.jsx`
 - GitHub Pages deployment is configured via `.github/workflows/deploy.yml`
 - Image data is static and should be updated via `public/images.json`
+
+## MCP Browser Tools
+
+This project is configured with MCP browser tools for enhanced debugging capabilities:
+
+### Setup
+- MCP server: `mcp-browser-tools` (installed globally)
+- Configuration: `~/.config/claude/claude_desktop_config.json`
+
+### Usage Examples
+- "Open browser and navigate to http://localhost:5173/Static-Image-Gallery/#/"
+- "Take a screenshot to check the masonry layout"
+- "Test the upload functionality"
+- "Check responsive design on mobile viewport"
+- "Inspect element styles and layout"
+
+### Available MCP Tools
+- Browser automation and navigation
+- Screenshot capture
+- Element inspection
+- JavaScript execution
+- Console log monitoring
+- Responsive testing
+
+See `MCP_DEBUG.md` for detailed debugging guide.
 
 ## Deployment
 
@@ -57,4 +101,12 @@ The project follows standard React component architecture with:
 3. Push to main branch to trigger automatic deployment
 4. Enable GitHub Pages in repository settings
 
-See DEPLOYMENT.md for detailed instructions.
+### Live URL
+- Production: https://xicai.github.io/Static-Image-Gallery/#/
+- Local Development: http://localhost:5173/Static-Image-Gallery/#/
+
+### Debugging Deployment Issues
+- Use browser's developer tools to check for 404 errors
+- Verify all asset paths include the repository subdirectory
+- Check GitHub Actions build logs for deployment errors
+- Use MCP browser tools to test live site functionality
