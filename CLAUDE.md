@@ -43,8 +43,6 @@ The gallery uses `public/images.json` as its data source, which contains:
 ### Key Files
 - src/App.css
 - src/App.jsx
-- src/components/BatchUploader.css
-- src/components/BatchUploader.jsx
 - src/components/DetailPage.css
 - src/components/DetailPage.jsx
 - src/components/HomePage.css
