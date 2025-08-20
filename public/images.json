@@ -1,5 +1,13 @@
 [
   {
+    "id": "test-1755514858715",
+    "url": "https://res.cloudinary.com/dttmaz4zo/image/upload/v1755514858/samples/ecommerce/vap6jyod1vrokvvaw5w2.jpg",
+    "description": "测试上传的图片",
+    "width": 200,
+    "height": 200,
+    "related_images": []
+  },
+  {
     "id": "img-001",
     "url": "https://res.cloudinary.com/demo/image/upload/sample.jpg",
     "description": "示例图片1 - 美丽的风景",

@@ -1,30 +1,32 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Masonry from 'react-masonry-css'
-import Uploader from './Uploader'
 import { getOptimizedImageUrl } from '../utils/cloudinary'
 import './HomePage.css'
 
 const HomePage = () => {
   const [images, setImages] = useState([])
   const [loading, setLoading] = useState(true)
-  const [showUploader, setShowUploader] = useState(false)
-
-  const handleUploadSuccess = (uploadedImage) => {
-    // 可以在这里添加上传成功后的逻辑
-    console.log('上传成功:', uploadedImage)
-  }
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    // 从 public/images.json 获取图片数据
-    fetch('/images.json')
-      .then(response => response.json())
+    console.log('HomePage component mounted')
+    fetch(`${import.meta.env.BASE_URL}images.json`)
+      .then(response => {
+        console.log('Response status:', response.status)
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        return response.json()
+      })
       .then(data => {
+        console.log('Loaded images:', data)
         setImages(data)
         setLoading(false)
       })
       .catch(error => {
         console.error('Error loading images:', error)
+        setError(error.message)
         setLoading(false)
       })
   }, [])
@@ -45,51 +47,43 @@ const HomePage = () => {
     )
   }
 
+  if (error) {
+    return (
+      <div className="error-container">
+        <p>加载图片时出错: {error}</p>
+      </div>
+    )
+  }
+
   return (
     <div className="home-page">
-      <header className="header">
-        <h1>静态图片画廊</h1>
-        <p>基于 React 和 Cloudinary 的图片展示平台</p>
-        <button 
-          className="upload-btn"
-          onClick={() => setShowUploader(!showUploader)}
-        >
-          {showUploader ? '收起上传' : '上传图片'}
-        </button>
-      </header>
-      
-      {showUploader && (
-        <Uploader onUploadSuccess={handleUploadSuccess} />
-      )}
-      
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {images.map((image) => {
-          // 使用优化的图片 URL
-          const optimizedUrl = getOptimizedImageUrl(image.url, {
-            width: 800,
-            quality: 'auto',
-            format: 'auto'
-          })
-          
-          return (
-            <div key={image.id} className="image-card">
-              <Link to={`/image/${image.id}`}>
-                <img 
-                  src={optimizedUrl}
-                  alt={image.description}
-                  loading="lazy"
-                />
-                <div className="image-overlay">
-                  <p>{image.description}</p>
-                </div>
-              </Link>
+        {images.map((image) => (
+          <Link
+            key={image.id}
+            to={`/image/${image.id}`}
+            className="image-card"
+          >
+            <div className="image-wrapper">
+              <img
+                src={getOptimizedImageUrl(image.url, {
+                  width: 400,
+                  quality: 'auto',
+                  format: 'auto'
+                })}
+                alt={image.description}
+                loading="lazy"
+              />
+              <div className="image-overlay">
+                <p>{image.description}</p>
+              </div>
             </div>
-          )
-        })}
+          </Link>
+        ))}
       </Masonry>
     </div>
   )

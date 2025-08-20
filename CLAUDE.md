@@ -41,17 +41,19 @@ The gallery uses `public/images.json` as its data source, which contains:
 - Cloudinary-hosted images
 
 ### Key Files
-- `src/main.jsx` - Application entry point using React 18 createRoot API
-- `src/App.jsx` - Main application component with HashRouter setup
-- `src/components/HomePage.jsx` - Gallery homepage with masonry layout
-- `src/components/DetailPage.jsx` - Individual image detail view
-- `src/components/Uploader.jsx` - Cloudinary image upload component
-- `src/utils/cloudinary.js` - Image URL optimization utilities
-- `public/images.json` - Image data configuration
-- `vite.config.js` - Vite configuration with GitHub Pages base path
-- `.github/workflows/deploy.yml` - GitHub Actions deployment workflow
-- `debug.sh` - Debug helper script
-- `MCP_DEBUG.md` - MCP browser tools debugging guide
+- src/App.css
+- src/App.jsx
+- src/components/BatchUploader.css
+- src/components/BatchUploader.jsx
+- src/components/DetailPage.css
+- src/components/DetailPage.jsx
+- src/components/HomePage.css
+- src/components/HomePage.jsx
+- src/components/Uploader.css
+- src/components/Uploader.jsx
+- src/index.css
+- src/main.jsx
+- src/utils/cloudinary.js
 
 ### Component Structure
 The project follows standard React component architecture with:
@@ -110,3 +112,10 @@ See `MCP_DEBUG.md` for detailed debugging guide.
 - Verify all asset paths include the repository subdirectory
 - Check GitHub Actions build logs for deployment errors
 - Use MCP browser tools to test live site functionality
+
+## Auto-generated Info
+
+- Project: Static-Image-Gallery
+- Version: N/A
+- Last updated: $(date)
+- Git hook: Auto-generated on commit

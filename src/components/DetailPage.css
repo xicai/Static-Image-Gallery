@@ -27,22 +27,34 @@
 }
 
 /* 主要图片展示 */
-.main-image-container {
+.main-image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  margin-bottom: 40px;
+  padding: 30px;
+}
+
+.main-image-container {
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .main-image {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 8px;
 }
 
 .image-info {
-  padding: 30px;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
 }
 
 .image-info h2 {
@@ -56,7 +68,7 @@
   font-size: 1rem;
 }
 
-/* 相关图片部分 */
+/* 相关图片部分 - 使用与首页相同的样式 */
 .related-section {
   margin-top: 40px;
 }
@@ -67,52 +79,78 @@
   margin-bottom: 20px;
 }
 
-.related-image-card {
-  display: block;
+/* 图片卡片样式 */
+.image-card {
   text-decoration: none;
+  color: inherit;
+  display: block;
   margin-bottom: 20px;
+}
+
+.image-wrapper {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.related-image-card:hover {
+.image-wrapper:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.related-image-card img {
+.image-wrapper img {
   width: 100%;
   height: auto;
   display: block;
   transition: transform 0.3s ease;
 }
 
-.related-image-card:hover img {
+.image-wrapper:hover img {
   transform: scale(1.05);
 }
 
-.related-image-overlay {
+.image-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
   color: white;
   padding: 15px;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.related-image-card:hover .related-image-overlay {
+.image-wrapper:hover .image-overlay {
   opacity: 1;
 }
 
-.related-image-overlay p {
+.image-overlay p {
   margin: 0;
   font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/*瀑布流布局*/
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -15px; /* gutter size offset */
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 15px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div { /* change div to reference your elements you put in the grid */
+  background: transparent;
+  margin-bottom: 15px;
 }
 
 /* 错误页面 */
