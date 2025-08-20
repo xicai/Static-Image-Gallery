@@ -41,17 +41,7 @@ The gallery uses `public/images.json` as its data source, which contains:
 - Cloudinary-hosted images
 
 ### Key Files
-- src/App.css
-- src/App.jsx
-- src/components/DetailPage.css
-- src/components/DetailPage.jsx
-- src/components/HomePage.css
-- src/components/HomePage.jsx
-- src/components/Uploader.css
-- src/components/Uploader.jsx
-- src/index.css
-- src/main.jsx
-- src/utils/cloudinary.js
+
 
 ### Component Structure
 The project follows standard React component architecture with:
